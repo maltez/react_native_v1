@@ -7,10 +7,10 @@ class MyItertor {
     [Symbol.iterator]() {
         return {
             __counter__: 0,
-            next() {
-                const propertyNames = Object.getOwnPropertyNames(new MyItertor());
-                    if(this.__counter__ < propertyNames.length) {
-                        const value = propertyNames[this.__counter__];
+            propertyNames: Object.getOwnPropertyNames(new MyItertor()),
+            next() {     
+                    if(this.__counter__ < this.propertyNames.length) {
+                        const value = this.propertyNames[this.__counter__];
                         this.__counter__ += 1;
                         return { value, done: false };
                     } else {
