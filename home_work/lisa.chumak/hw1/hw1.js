@@ -5,11 +5,18 @@ class Iterator {
         this.third = 3;
     }
 
-    *[Symbol.iterator]() {
+    [Symbol.iterator]() {
         const propertyNames = Object.getOwnPropertyNames(this);
-        for (let propertyName of propertyNames) {
-            yield propertyName;
-        }
+        let count = 0;
+        return {
+            next() {
+                if (count < propertyNames.length) {
+                    return { value: propertyNames[count++], done: false };
+                } else {
+                    return { done: true };
+                }
+            }
+        };
     }
 }
 
