@@ -1,0 +1,16 @@
+{
+  "name": "npm-for-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "force-case-sensitivity-webpack-plugin": "^0.2.1"
+  }
+}
