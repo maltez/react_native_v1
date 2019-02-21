@@ -1,4 +1,4 @@
-let home = require('./home');
+import home from'./home';
 
 console.log('Running app version - ' + version + '. Env - ' + ENV);
 

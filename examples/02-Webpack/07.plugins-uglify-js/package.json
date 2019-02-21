@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.12.0"
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   },
-  "dependencies": {
-    "webpack-cli": "^2.1.4"
-  }
+  "dependencies": {}
 }
