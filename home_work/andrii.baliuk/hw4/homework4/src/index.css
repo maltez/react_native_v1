@@ -1,0 +1,34 @@
+.week-title {
+  display: inline-block;
+  height: 1px;
+}
+.week-title .day-name {
+  display: inline;
+  list-style: none;
+  margin: 0 6px;
+}
+.week-line {
+  float: left;
+  width: 100%;
+  margin: 5px 0;
+}
+.week {
+  display: inline;
+  list-style: none;
+}
+.day {
+  width: 35px;
+  height: 25px;
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 5px;
+  margin: 1px;
+}
+
+.isToday {
+  border: 1px solid red;
+}
+.weekends {
+  background-color: #ccc;
+}
