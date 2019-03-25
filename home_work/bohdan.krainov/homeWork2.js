@@ -4,16 +4,12 @@ randWaitTime = () => {
 
 function fakeAPI (msg, delay){
     return new Promise((resolve, reject)=>{
-        if(delay > 700) {
-            console.log('???')
-            return new RangeError('Its too long')
-        }
         if(msg.includes('error')) {
-            console.log('!!!!');
-            return new RangeError("Parameter contains error")
+            console.log('!!!');
+            return new Error("Parameter contains error")
         }
         setTimeout(()=> {
-            return resolve(msg);
+            return resolve({'message':msg, 'time': delay});
         }, delay);
     });
 }
@@ -22,16 +18,25 @@ promises = [];
 
 for(let i=0; i<7; i++) {
     let time = randWaitTime();
-    console.log(time);
-    promises.push(fakeAPI('Hello', time));
+    promises.push(fakeAPI(i.toString(), time));
 }
 
-console.log(promises);
+Promise.race([fakeAPI('error', randWaitTime())])
+.then((data) => {
+    console.log(data);
+    return data
+})
+.catch((err) => {
+    console.log(err.message)
+});
+
 
 Promise.all(promises)
     .then(dataArray => {
         console.log("Result of Promise.all", dataArray);
         return dataArray;
     })
-    .then(data => {
-        console.log("Result after Promise.all", data);})
+    .catch((err) => {
+        console.log('@@@');
+        console.log(err.message);
+    });
