@@ -2,9 +2,7 @@ randWaitTime = () => {
     return Math.floor(Math.random()*1000);
 }
 
-test_url_1 = 'http://testurl1.com';
-test_url_2 = 'http://testurl2.com';
-test_url_3 = 'http://testurl3.com'
+test_urls = ['http://testurl1.com', 'http://testurl2.com', 'http://testurl3.com']
 
 function fakeAPI (msg, delay){
     return new Promise((resolve, reject)=>{
@@ -20,8 +18,9 @@ function fakeAPI (msg, delay){
 function updateURL(url, key, values) {
     result = url + '/?'
     for (i of values) {
-        result += `${key}=${i}`
+        result += `${key}=${i.message}`
     }
+    console.log(result, '???')
     return result
 }
 
@@ -48,10 +47,17 @@ Promise.all(promises)
     .then(dataArray => {
         console.log("Result of all Promises");
         console.log(dataArray);
-        for(i of dataArray) {
-            console.log(i.message);
+        for(url of test_urls) {
+            final_requests.push(fakeAPI(updateURL(url, 'q', dataArray), randWaitTime()))
         }
-        return dataArray;
+        return final_requests;
+    })
+    .then((data) => {
+        result = Promise.race(data);
+        return result
+    })
+    .then((data) => {
+        console.log('Fastest response:', data)
     })
     .catch((err) => {
         console.log(err.message);
