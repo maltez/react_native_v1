@@ -12,3 +12,16 @@
 ## Homework 3
 - Create site used jQuery.Site one form with jQuery validation(email, phone number).
 - Site should be bundled by webpack. You have to set version (increment) of bundle. Include all scripts not by the hands. All scripts should by minifiing and uglify. Sours maps should be included.
+
+## Homework 4
+- Create day ceil(functional) component.
+- Component should retrieve as props day number and is this day is vacation
+
+## Homework 5
+- Create calendar component.
+- It has to contains day components from pervious HW4
+- All days components should be in month/year component
+- you can switch month and days should change their order and numbers and days status(holiday/regular)
+- get holidays from different public APIs using fetch(in can be fake API)
+- you can change year
+- Use redux approach

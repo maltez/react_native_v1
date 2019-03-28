@@ -1,0 +1,15 @@
+{
+  "name": "04-React",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create": "create-react-app hello-world"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^2.1.5"
+  }
+}
