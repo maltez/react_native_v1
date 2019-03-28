@@ -15,15 +15,6 @@ function fakeAPI (msg, delay){
     });
 }
 
-function updateURL(url, key, values) {
-    result = url + '/?'
-    for (i of values) {
-        result += `${key}=${i.message}`
-    }
-    console.log(result, '???')
-    return result
-}
-
 fakeAPI('first', 300)
     .then(result => {
         console.log(result);
@@ -45,10 +36,14 @@ final_requests = [];
 
 Promise.all(promises)
     .then(dataArray => {
-        console.log("Result of all Promises");
+        console.log("Result of all Promises:");
         console.log(dataArray);
+        const values = [];
+        for(q of dataArray){
+            values.push(`q=${q.message}`);
+        }
         for(url of test_urls) {
-            final_requests.push(fakeAPI(updateURL(url, 'q', dataArray), randWaitTime()))
+            final_requests.push(fakeAPI(url + '/?' + values.join('&'), randWaitTime()))
         }
         return final_requests;
     })
