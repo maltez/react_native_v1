@@ -1,0 +1,9 @@
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const DELAY = 'DELAY';
+
+export {
+    INCREMENT,
+    DECREMENT,
+    DELAY
+}
