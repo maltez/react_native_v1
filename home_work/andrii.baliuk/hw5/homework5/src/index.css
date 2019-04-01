@@ -1,0 +1,66 @@
+@import url("./css/bootstrap.css");
+
+.week-title {
+  display: inline-block;
+  margin: 0;
+}
+.week-title .day-name {
+  display: inline;
+  list-style: none;
+  margin: 0 7px;
+  max-width: 24px;
+  min-width: 24px;
+}
+.week-title .day-name[type="Sun"],
+.week-title .day-name[type="Sat"] {
+  color: red;
+}
+
+.week-line {
+  float: left;
+  width: 100%;
+  margin: 5px 0;
+}
+.week {
+  display: inline;
+  list-style: none;
+}
+.day {
+  width: 33px;
+  height: 25px;
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  margin: 1px;
+  margin: 0 4px;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.day[isweekend="isWeekend"] {
+  background: rgb(192, 192, 192);
+}
+.day[typeofday="publicHoliday"] {
+  background: red;
+  cursor: pointer;
+}
+.day[typeofday="clockTime"] {
+  background: orange;
+  cursor: pointer;
+}
+.day[typeofday="observance"] {
+  background: seagreen;
+  cursor: pointer;
+}
+.day[typeofday="season"] {
+  background: goldenrod;
+  cursor: pointer;
+}
+
+.isToday {
+  border: 1px solid black;
+  background: gray;
+}
+.weekends {
+  background-color: #ccc;
+}
